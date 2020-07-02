@@ -1,0 +1,22 @@
+{
+  "instructors": [
+    {
+      "id": 1,
+      "name": "ALOÍSIO SAMPAIO CAIRO",
+      "avatar_url": "http://google.com",
+      "birth": 576633600000,
+      "gender": "M",
+      "service": "Musculação",
+      "created_at": 1593689431286
+    },
+    {
+      "id": 2,
+      "name": "Geiciane",
+      "avatar_url": "http://google.com",
+      "birth": 651542400000,
+      "gender": "F",
+      "service": "Musculação",
+      "created_at": 1593689459073
+    }
+  ]
+}

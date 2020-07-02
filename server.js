@@ -4,6 +4,10 @@ const routes = require('./routes')
 
 const server = express()
 
+/* Cadastro de Instrutores - Recebendo dados do Front end com req.body
+   Configura o Express para receber os dados do "body" */
+server.use(express.urlencoded({extended: true}))
+
 server.use(express.static('public'))
 server.use(routes)
 
