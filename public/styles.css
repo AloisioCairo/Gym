@@ -145,7 +145,7 @@ header {
 }
 
 /* FORM - Cadastro de Instrutores - Estilizando o formulário */
-input {
+input, select{
   width: 100%;
   outline: none; /* Remove a borda padrão do componente "input" */
   color: #555;
@@ -165,7 +165,8 @@ input::placeholder {
 }
 
 /* Seleciona somente os botões com o tipo "submit" */
-button[type="submit"] {
+button[type="submit"],
+a.button {
   padding: 8px 32px;
   background-color: var(--primary-color);
   color: white;
@@ -175,3 +176,81 @@ button[type="submit"] {
   font-size: 16px;
 }
 
+a.button {
+  display: block;
+  box-sizing: border-box; /* Faz o botão obedecer o tamanho do box */
+  text-align: center;
+  text-decoration: none;
+}
+
+#form-delete button[type="submit"] {
+  margin-top: 8px;
+  background-color: lightcoral;
+}
+
+/* Index instructors */
+.tabel-container {
+  display: block;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.tabel-container table {
+  border-spacing: 0;
+}
+
+.tabel-container tr th {
+  text-align: left;
+}
+
+td, th {
+  padding: 16px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+th {
+  text-transform: uppercase;
+  color: #777;
+  font-size: 14px;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr td:first-child {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+}
+
+tbody tr td:first-child span {
+  width: 48px;
+  height: 48px;
+  background-position: center;
+  background-size: cover; /* Ocupa toda a largura e altura */
+  border-radius: 50%; /* Arredonda a imagem */
+  box-shadow: 3px 1px 6px -4px black;
+  border: 2px solid white;
+}
+
+tbody tr td:last-child a,
+.tabel-container > a{
+  background-color: var(--primary-color);
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.tabel-container > a {
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.tabel-container thead tr th:last-child,
+td:last-child {
+  text-align: center;
+}

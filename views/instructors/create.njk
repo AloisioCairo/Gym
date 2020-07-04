@@ -11,56 +11,7 @@
             
             <h3>Novo instrutor</h3>
 
-            <div class="item">
-                <div>Avatar URL</div>
-                <div>
-                    <input 
-                        type="url" 
-                        name="avatar_url"
-                        placeholder="http://"
-                    >
-                </div>
-            </div>
-
-            <div class="item">
-                <div>Instrutor</div>
-                <div>
-                    <input 
-                        type="text" 
-                        name="name"
-                        placeholder="Nome do instrutor"
-                    >
-                </div>
-            </div>
-
-            <div class="item">
-                <div>Data de nascimento</div>
-                <div>
-                    <input 
-                        type="date" 
-                        name="birth"
-                    >
-                </div>
-            </div>
-
-            <div class="item">
-                <div>Sexo</div>
-                <span><input type="radio" name="gender" value="M" checked> Masculino</span>
-                <span><input type="radio" name="gender" value="F"> Feminino</span>
-            </div>
-
-            <div class="item">
-                <div>Área de atuação</div>
-                <div>
-                    <input 
-                        type="text" 
-                        name="service"
-                        placeholder="Separe por virgurla, os serviços prestados"
-                    >
-                </div>
-            </div>
-
-            <button type="submit">Salvar cadastro</button>
+            {% include 'instructors/fields.njk' %}
 
         </section>
     </form>    
