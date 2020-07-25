@@ -254,3 +254,62 @@ tbody tr td:last-child a,
 td:last-child {
   text-align: center;
 }
+
+/* FILTERS */
+.tabel-container .header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.tabel-container .header a {
+  margin: 0;
+  width: 120px;
+}
+
+.tabel-container .header form {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  align-items: center;
+  grid-gap: 8px;
+}
+
+.tabel-container .header form input {
+  border: 1px solid #eee;
+  padding: 4px 8px;
+}
+
+.tabel-container .header form button {
+  margin: 0;
+}
+
+/* Pagination */
+.tabel-container {
+  display: grid;
+  grid-template: 64px 1fr 16px / 1fr;  
+}
+
+.tabel-container .header{
+  margin: 0;
+  align-self: start;
+}
+
+.tabel-container .pagination {
+  margin: 0;
+  align-self: end;
+  justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+.pagination a:hover {
+  filter: brightness(0.3);
+  border-bottom: 1px solid var(--primary-color);
+}
+

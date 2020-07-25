@@ -45,6 +45,23 @@ module.exports = {
         })
 
     },
+    findBy (filter, callback) {               
+        db.query(`
+        SELECT instructors.*, count(members) AS total_students
+        FROM instructors
+        LEFT JOIN members ON (members.instructor_id = instructors.id)
+        WHERE instructors.name ILIKE '%${filter}%'
+        OR instructors.services ILIKE '%${filter}%'
+        GROUP BY instructors.id
+        ORDER BY instructors."name" `, function(err, results){
+            
+            if (err)
+            throw `Erro no banco de dados. ${err}`
+                    
+            callback(results.rows)            
+        })
+
+    },
     update (data, callback){
         const query = `UPDATE instructors SET
             avatar_url = ($1),
@@ -73,5 +90,37 @@ module.exports = {
             
             return callback()        
         })
+    },
+    paginate(params){
+        const { filter, limit, offset, callback } = params
+
+        let query = "",
+            filterQuery = "",
+            totalQuery = `(SELECT count(*) FROM instructors) AS total`        
+
+            if (filter) {
+                filterQuery = `${query}
+                WHERE instructors.name ILIKE '%${filter}%'
+                OR instructors.services ILIKE '%${filter}%'
+                `
+
+                totalQuery = `(SELECT count(*) FROM instructors
+                    ${filterQuery}) AS total`
+            }
+
+            query = `
+                SELECT instructors.*, ${totalQuery}, count(members) AS total_students
+                FROM instructors
+                LEFT JOIN members ON (members.instructor_id = instructors.id)
+                ${filterQuery}
+                GROUP BY instructors.id LIMIT $1 OFFSET $2                
+                `
+
+            db.query(query, [limit, offset], function(err, results){
+                if (err)
+                    throw 'Erro ao listar os dados dos instrutores cadastrados.'
+                
+                callback(results.rows)
+            })
     }
 }
